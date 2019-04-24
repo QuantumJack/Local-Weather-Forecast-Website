@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ECS 162 Assignment 3, Spring 2019</title>
+	<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
+	
+	<!-- font-family:'Saira Extra Condensed', sans-serif; -->
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
+	<!-- font-family:'IBM Plex Sans', sans-serif; -->
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="assignment3.css">
+
+</head>
+
+<body onload="loadImages();startInterval();">
+	<header>
+		<div id="notDoppler">
+			<h1>Local Weather Six Hour Forecast</h1>
+			<h2>Northern California with doppler radar</h2>
+			<div id="searchBox">
+				<h3>Forecast for: </h3>
+				<input type="text" id="inputPlace">
+				<button onclick="makeCorsRequest()">Submit</button>
+			</div>
+
+			<div class="TimeIconTemperature" id="nowTemp">
+				<div id="thisHourSubtitles">
+					<h4>current</h4>
+					<h4 class="time">0 PM</h4>
+					<h5 class="temperature" id="temperatureMobile">0°</h5>
+				</div>
+				<div class="oneIcon">
+					<img class="icon" src="assets/clearsky.svg">
+				</div>
+				<h5 class="temperature" id="temperatureWeb">0°</h5>
+			</div>
+		</div>
+
+		<div id="Doppler" >
+			<img src="assets/DAX_Topo_Short.jpg" id="lowestMap" class="gray"/>
+			<img src="assets/DAX_City_Short.gif" id="city"/>
+			<!--<img src="assets/DAX_N0R_0.gif" id="radar" /> !-->
+		</div>
+	</header>
+
+	<!-- <div id="debug">
+		<p id="debug1"></p>
+	</div> -->
+
+	<div id="nextFiveHourTemp">
+		<div class="TimeIconTemperature">
+			<h4 class="time">1 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">2 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">3 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">4 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="assets/clearsky.svg">
+			</div>
+			<h2 class="temperature">0°</h2>
+		</div>
+		<div class="TimeIconTemperature">
+			<h4 class="time">5 PM</h4>
+			<div class="oneIcon">
+				<img class="icon" src="assets/clearsky.svg">
+			</div>
+			<!-- onerror="if (this.src != 'error.jpg') this.src = '../assets/clearsky.svg';" -->
+			<h2 class="temperature">0°</h2>
+		</div>
+	</div>
+
+	<!-- execute the Javascript for this page -->
+	<script src="collectPastDoppler.js"></script>
+	<script src="makeRequest.js"></script>
+
+
+</body>
+</html>
